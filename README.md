@@ -16,7 +16,8 @@ The iPerfAutomation module enables an easy way to bandwidth test between multipl
 
 ## Usage
 ```powershell
-Start-iPerfMonitorTest -From Computer1 -To Computer2
+Start-iPerfMonitorTest -From 'Computer1' -To 'Computer2'
+
 Connecting to host Computer2, port 5201
 [  4] local 192.168.0.10 port 51962 connected to 192.168.0.11 port 5201
 [ ID] Interval           Transfer     Bandwidth
