@@ -7,11 +7,15 @@ Function Start-iPerfMonitorTest {
     .PARAMETER From
         Specifies the computer to run iPerf in Client mode.
     .PARAMETER To
-        Specifies the computers to run iPerf in Server mode.
+        Specifies the computer[s] to run iPerf in Server mode.
     .PARAMETER WindowSize
+        Sets the socket buffer (TCP window) sizes to the specified value in KB.
     .PARAMETER FileSize
+        Use a generated stream of a specific size (in MB) to measure bandwidth.
     .EXAMPLE
         Start-iPerfMonitorTest -From Computer1 -To Computer2
+    .EXAMPLE
+        Start-iPerfMonitorTest -From Computer1 -To Computer2,Computer3,Computer4 -WindowsSize 128KB -FileSize 500MB
     #>
 
     [OutputType([void])]
@@ -46,7 +50,7 @@ Function Start-iPerfMonitorTest {
         Try {
             ## Ensure all servers are available
             If ($NotAvail = @(Test-ServerAvailability -ComputerName (@($From) + $To)).where({ -not $_.Online })) {
-                throw "The server(s) [$(($NotAvail.ComputerName -join ','))] could not be contacted."
+                Throw "The server(s) [$(($NotAvail.ComputerName -join ','))] could not be contacted."
             }
 
             ## Ensure the iPerf module is installed on all servers
