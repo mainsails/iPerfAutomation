@@ -8,10 +8,12 @@ The iPerfAutomation module enables an easy way to bandwidth test between multipl
 
 
 ## Requirements
-* All Windows Client Operating Systems are supported
-   Windows 7 SP1 and Windows Server 2008R2 through to Windows 10 CB and Windows Server 2016
+* All 64bit Windows Client Operating Systems are supported
+   Windows 7 SP1 and Windows Server 2008R2 through to Current Branches of Windows 10 and Windows Server
 * PowerShell Version 4
 * Administrative Rights (where applicable)
+* Firewall open to the relevant inbound port on the computer(s) running in "Server" Mode
+* WinRM enabled
 
 
 ## Usage
