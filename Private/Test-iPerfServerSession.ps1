@@ -12,13 +12,13 @@ Function Test-iPerfServerSession {
     }
     Process {
         Try {
-            $cimParams = @{
+            $CimParams = @{
                 ComputerName = $ComputerName
                 ClassName    = 'Win32_Process'
                 Filter       = "Name = 'iperf3.exe'"
                 Property     = 'CommandLine'
             }
-            If (($serverProc =  Get-CimInstance @cimParams) -and ($serverProc.CommandLine -match '-s$')) { $true }
+            If (($ServerProc =  Get-CimInstance @CimParams) -and ($ServerProc.CommandLine -match '-s$')) { $true }
             Else { $false }
         }
         Catch {
